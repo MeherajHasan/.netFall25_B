@@ -8,6 +8,9 @@
 
 @Html.ValidationSummary()
 
+@if (TempData["Msg"] != null) { 
+    <p class="alert alert-info">@TempData["Msg"]</p>
+}
 
 <h2>Index</h2>
 <form action="" method="post">

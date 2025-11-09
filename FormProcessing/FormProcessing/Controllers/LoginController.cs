@@ -35,5 +35,20 @@ namespace FormProcessing.Controllers
         //    var name = fc["Username"];
         //    return View();
         //}
+        [HttpGet]
+        public ActionResult Registration() {
+            return View(new Student());
+        }
+        [HttpPost]
+        public ActionResult Registration(Student s) {
+            if (ModelState.IsValid) {
+                TempData["Msg"] = "Registration Successful";
+                return RedirectToAction("Index");
+            }
+            return View(s);
+        }
     }
+
+    
+
 }
