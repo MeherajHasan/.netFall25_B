@@ -1,4 +1,5 @@
-﻿using IntroEF.EF;
+﻿using IntroEF.DTOs;
+using IntroEF.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +11,46 @@ namespace IntroEF.Controllers
     public class StudentController : Controller
     {
         Fall25_BEntities db = new Fall25_BEntities();
+
+        public static Student Convert(StudentDTO s) { 
+            return new Student()
+            {
+                Name = s.Name,
+                Email = s.Email,
+                DeptId = s.DeptId,
+                Address = s.Address
+            };
+        }
+        public static StudentDTO Convert(Student s)
+        {
+            return new StudentDTO()
+            {
+                Name = s.Name,
+                Email = s.Email,
+                DeptId = s.DeptId,
+                Address = s.Address
+            };
+        }
+        public List<StudentDTO> Convert(List<Student> list) {
+            var data = new List<StudentDTO>();
+            foreach (var item in list)
+            {
+                data.Add(Convert(item));
+            }
+            return data;
+        }
+
         // GET: Student
         [HttpGet]
         public ActionResult Create() {
             return View(new Student());
         }
         [HttpPost]
-        public ActionResult Create(Student s)
+        public ActionResult Create(StudentDTO s)
         {
+            var st = Convert(s);
             
-            db.Students.Add(s);
+            db.Students.Add(st);
             db.SaveChanges();
             TempData["Msg"] = "Data " + s.Name + " Created";
             return RedirectToAction("List");
@@ -33,7 +64,7 @@ namespace IntroEF.Controllers
                 return View(list);
             }
             var data = db.Students.ToList();
-            return View(data);
+            return View(Convert(data));
         }
         public ActionResult Details(int id) {
             var data = db.Students.Find(id); //finds with primary key

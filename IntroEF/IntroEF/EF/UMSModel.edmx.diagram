@@ -9,6 +9,8 @@
         <EntityTypeShape EntityType="Fall25_BModel.Department" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Fall25_BModel.Employee" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Fall25_BModel.Student" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="Fall25_BModel.FK_Students_Departments" />
+        <AssociationConnector Association="Fall25_BModel.FK_Courses_Departments" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
