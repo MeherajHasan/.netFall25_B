@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MVCAPPLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4de7e9284cf5efd82d1b8ae04fae38ad04d8a721")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+feec1d6aa7cc02d0b088a4e90001698d2e1baf71")]
 [assembly: System.Reflection.AssemblyProductAttribute("MVCAPPLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MVCAPPLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

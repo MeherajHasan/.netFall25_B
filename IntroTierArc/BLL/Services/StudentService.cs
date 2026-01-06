@@ -17,22 +17,28 @@ namespace BLL.Services
         {
             this.repo = repo;
         }
-
-        Mapper GetMapper() {
-            var config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<Student, StudentDTO>().ReverseMap();
-            });
-            return new Mapper(config);
-        }
+      
         public List<StudentDTO> Get() {
             List<Student> data = repo.Get();
             //convert to DTO
-            var ret = GetMapper().Map<List<StudentDTO>>(data);
+            var ret = MapperConfig.GetMapper().Map<List<StudentDTO>>(data);
+            return ret;
+        }
+        public StudentDTO Get(int id) {
+            var data = repo.Get(id);
+            var ret = MapperConfig.GetMapper().Map<StudentDTO>(data);
             return ret;
         }
         public bool Create(StudentDTO student) { 
-            Student s = GetMapper().Map<Student>(student);
+            Student s = MapperConfig.GetMapper().Map<Student>(student);
             return repo.Create(s);
+        }
+        public bool Update(StudentDTO student) {
+            Student s = MapperConfig.GetMapper().Map<Student>(student);
+            return repo.Update(s);
+        }
+        public bool Delete(int id) { 
+            return repo.Delete(id);
         }
     }
 }

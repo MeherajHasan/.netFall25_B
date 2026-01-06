@@ -10,5 +10,6 @@ namespace BLL.DTOs
     {
         public int ID { get; set; }
         public string Name { get; set; }
+        public int DId { get; set; }
     }
 }
